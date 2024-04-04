@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Monda } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/sections/header";
+import Footer from "@/components/sections/footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const rubik = Monda({ subsets: ['latin'], weight: ['400'] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${rubik.className} font-mono`}>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
